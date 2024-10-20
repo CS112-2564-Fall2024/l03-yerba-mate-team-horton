@@ -3,16 +3,17 @@ public class Tea extends CaffeinatedBeverage {
 
     public Tea() {
         super();
+        setBrewTemp(0);
     }
 
     public Tea(String name, int ounces, double price, int brewTemp) {
         super(name, ounces, price);
-        this.brewTemp = brewTemp;
+        setBrewTemp(brewTemp);
     }
 
     public Tea(Tea tea) {
         super(tea);
-        this.brewTemp = tea.brewTemp;
+        setBrewTemp(tea.getBrewTemp());
     }
 
     public void setBrewTemp(int brewTemp) { this.brewTemp = brewTemp; }

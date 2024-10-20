@@ -16,9 +16,8 @@ public class YerbaMate extends Tea {
     }
 
     public int getNumPasses() { return this.numPasses; }
-    public void passMate() {
-        this.numPasses++;
-    }
+
+    public void passMate() { this.numPasses++; }
 
     public void refill(int ounces) {
         this.setOunces(this.getOunces() + ounces);
@@ -28,9 +27,8 @@ public class YerbaMate extends Tea {
         return super.toString() + " Num Passes: " + this.numPasses;
     }
 
-    public boolean equals(YerbaMate other) {
-        if (super.equals(other) && other instanceof YerbaMate) {
-            YerbaMate otherMate = (YerbaMate) other;
+    public boolean equals(Object other) {
+        if (super.equals(other) && other instanceof YerbaMate otherMate) {
             return otherMate.numPasses == this.numPasses;
         }
         return false;

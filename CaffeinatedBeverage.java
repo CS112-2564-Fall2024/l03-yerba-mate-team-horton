@@ -5,30 +5,28 @@ public class CaffeinatedBeverage
     private double price;
 
     public CaffeinatedBeverage() {
-        this.name = "None";
-        this.ounces = 0;
-        this.price = 0;
+        setName("None");
+        setOunces(0);
+        setPrice(0);
     }
 
     public CaffeinatedBeverage(String name, int ounces, double price) {
-        this.name = name;
-        this.ounces = ounces;
-        this.price = price;
+        setName(name);
+        setOunces(ounces);
+        setPrice(price);
     }
 
     public CaffeinatedBeverage(CaffeinatedBeverage beverage) {
-        this.name = beverage.name;
-        this.ounces = beverage.ounces;
-        this.price = beverage.price;
+        setName(beverage.getName());
+        setOunces(beverage.getOunces());
+        setPrice(beverage.getPrice());
     }
 
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
     public int getOunces() {
         return this.ounces;
@@ -42,9 +40,7 @@ public class CaffeinatedBeverage
         return this.price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    public void setPrice(double price) { this.price = price; }
 
     public String toString() {
         return "Name: " + this.name + ", Ounces: " + this.ounces + ", Price: " + this.price;
@@ -52,8 +48,7 @@ public class CaffeinatedBeverage
 
     @Override
     public boolean equals(Object other) {
-        if (other instanceof  CaffeinatedBeverage) {
-            CaffeinatedBeverage otherBev = (CaffeinatedBeverage) other;
+        if (other instanceof CaffeinatedBeverage otherBev) {
             return this.ounces == otherBev.ounces
                     && Double.compare(this.price, otherBev.price) == 0
                     && this.name.equals(otherBev.name);

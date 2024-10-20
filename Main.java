@@ -20,11 +20,11 @@ public class Main
 			choice = keyboard.nextInt();
 
 			if (choice == 3) {
-				break;
+				continue;
 			}
 
 			System.out.print("Enter name      : ");
-			name = keyboard.nextLine();
+			keyboard.nextLine(); // next line needs a skip
 			name = keyboard.nextLine();
 			System.out.print("Enter ounces    : ");
 			ounces = keyboard.nextInt();
@@ -79,12 +79,12 @@ public class Main
 		double sum = 0.0;
 		int count = 0;
 
-		for (int i = 0; i < inventory.length; i++) {
-			if (inventory[i] != null) {
-				sum += inventory[i].getPrice();
-				count++;
-			}
-		}
+        for (CaffeinatedBeverage caffeinatedBeverage : inventory) {
+            if (caffeinatedBeverage != null) {
+                sum += caffeinatedBeverage.getPrice();
+                count++;
+            }
+        }
 
 		if (count > 0) {
 			return sum / count;
@@ -96,15 +96,14 @@ public class Main
 	public static YerbaMate findHighestPricedYerbaMate(CaffeinatedBeverage[] inventory) {
 		YerbaMate highest = null;
 
-		for (int i = 0; i < inventory.length; i++) {
-			if (inventory[i] instanceof YerbaMate) {
-				YerbaMate temp = (YerbaMate) inventory[i];
-				if (highest == null
-					|| temp.getPrice() > highest.getPrice()) {
-					highest = temp;
-				}
-			}
-		}
+        for (CaffeinatedBeverage caffeinatedBeverage : inventory) {
+            if (caffeinatedBeverage instanceof YerbaMate temp) {
+                if (highest == null
+                        || temp.getPrice() > highest.getPrice()) {
+                    highest = temp;
+                }
+            }
+        }
 
 		return highest;
 	}
